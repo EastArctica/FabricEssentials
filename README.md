@@ -86,7 +86,7 @@ the [available tags](https://placeholders.pb4.eu/user/text-format/#list-of-avail
 
 This mod provides data importers for data from some other mods to help you transition. 
 **Before starting the import process, make sure to take a backup!**
-There is currently support for [`kiloessentials`](https://github.com/DrexHD/KiloEssentials) and [`essential_commands`](https://github.com/John-Paul-R/Essential-Commands).
+There is currently support for [`kiloessentials`](https://github.com/DrexHD/KiloEssentials), [`essential_commands`](https://github.com/John-Paul-R/Essential-Commands), and [`essentialsx`](https://github.com/EssentialsX/Essentials).
 If you wish to import data from any of these mods:
 1. Shutdown your server
 2. Remove the old mod

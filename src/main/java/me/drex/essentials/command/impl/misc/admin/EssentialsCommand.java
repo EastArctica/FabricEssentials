@@ -14,6 +14,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import me.drex.essentials.command.Command;
 import me.drex.essentials.command.CommandProperties;
 import me.drex.essentials.command.impl.misc.admin.importer.DataImporter;
+import me.drex.essentials.command.impl.misc.admin.importer.EssentialsImporter;
 import me.drex.essentials.command.impl.misc.admin.importer.KiloEssentialsImporter;
 import me.drex.essentials.config.ConfigManager;
 import me.drex.essentials.mixin.CommandSourceStackAccessor;
@@ -31,7 +32,7 @@ import static net.minecraft.commands.Commands.literal;
 public class EssentialsCommand extends Command {
 
     public static final DynamicCommandExceptionType UNKNOWN = new DynamicCommandExceptionType(ignored -> localized("fabric-essentials.commands.essentials.import.unknown", (CommandSourceStack) ignored));
-    private static final DataImporter[] DATA_IMPORTERS = new DataImporter[]{KiloEssentialsImporter.KILO_ESSENTIALS, EssentialCommandsImporter.ESSENTIAL_COMMANDS};
+    private static final DataImporter[] DATA_IMPORTERS = new DataImporter[]{KiloEssentialsImporter.KILO_ESSENTIALS, EssentialCommandsImporter.ESSENTIAL_COMMANDS, EssentialsImporter.ESSENTIALS};
 
     public EssentialsCommand() {
         super(CommandProperties.create("essentials", 3));

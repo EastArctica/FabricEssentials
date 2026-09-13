@@ -49,6 +49,8 @@ dependencies {
     includeMod("eu.pb4:player-data-api:${findProperty("player_data_api_version")}")
     includeMod("eu.pb4:common-protection-api:${findProperty("common_protection_api_version")}")
     includeMod("xyz.nucleoid:server-translations-api:${findProperty("server_translations_api_version")}")
+
+    include(implementation("org.yaml:snakeyaml:2.3")!!)
 }
 
 publishMods {

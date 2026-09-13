@@ -1,5 +1,6 @@
 package me.drex.essentials.command.impl.misc.admin.importer;
 
+import com.esotericsoftware.yamlbeans.YamlReader;
 import me.drex.essentials.EssentialsMod;
 import me.drex.essentials.storage.DataStorage;
 import me.drex.essentials.storage.PlayerData;
@@ -11,11 +12,8 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.storage.LevelResource;
 import net.minecraft.world.phys.Vec3;
-import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.error.YAMLException;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -27,8 +25,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class EssentialsImporter implements DataImporter {
 
     public static final EssentialsImporter ESSENTIALS = new EssentialsImporter();
-
-    private static final Yaml YAML = new Yaml();
 
     @Override
     public String getImporterId() {
@@ -66,7 +62,7 @@ public class EssentialsImporter implements DataImporter {
                         DataStorage.updateOfflinePlayerData(server, UUID.fromString(uuid), playerData);
                     }
                     success.incrementAndGet();
-                } catch (IllegalArgumentException | YAMLException | IOException e) {
+                } catch (IllegalArgumentException | IOException e) {
                     EssentialsMod.LOGGER.error("An error occurred while handling user file {}", path, e);
                     failed.incrementAndGet();
                 }
@@ -91,7 +87,7 @@ public class EssentialsImporter implements DataImporter {
                 String warpName = fileName.substring(0, fileName.length() - 4);
                 try {
                     parseLocation(server, parseUserData(path)).ifPresent(location -> warps.put(warpName, new Warp(location)));
-                } catch (YAMLException | IOException e) {
+                } catch (IOException e) {
                     EssentialsMod.LOGGER.error("An error occurred while handling warp file {}", path, e);
                 }
             });
@@ -117,7 +113,7 @@ public class EssentialsImporter implements DataImporter {
                     EssentialsMod.LOGGER.warn("Skipped spawn import, a spawn location is already set!");
                 }
             });
-        } catch (YAMLException | IOException e) {
+        } catch (IOException e) {
             EssentialsMod.LOGGER.error("An error occurred while handling the spawn file {}", spawnFile, e);
         }
     }
@@ -134,12 +130,12 @@ public class EssentialsImporter implements DataImporter {
     }
 
     @SuppressWarnings("unchecked")
-    private Map<String, Object> parseUserData(Path path) throws IOException, YAMLException {
+    private Map<String, Object> parseUserData(Path path) throws IOException {
         Map<String, Object> data;
-        try (InputStream input = Files.newInputStream(path)) {
-            data = YAML.load(input);
+        try (YamlReader reader = new YamlReader(Files.newBufferedReader(path))) {
+            data = (Map<String, Object>) reader.read();
         }
-        return data == null ? Map.of() : (Map<String, Object>) data;
+        return data == null ? Map.of() : data;
     }
 
     private Optional<Location> parseLocation(MinecraftServer server, Map<?, ?> data) {

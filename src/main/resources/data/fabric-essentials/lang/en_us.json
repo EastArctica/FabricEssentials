@@ -96,6 +96,8 @@
   "fabric-essentials.commands.sethome.self.confirm": "<red>A home with that name already exists! <yellow>Do you want to overwrite this <gold>home<yellow>? <hover:show_text:'<red>Click to confirm!'><run_cmd:'/sethome ${home_name} -confirm'><dark_red>[<bold>CONFIRM</bold>]",
   "fabric-essentials.commands.sethome.other.confirm": "<red><gold>%player:displayname% <red>already has a home with that name! <yellow>Do you want to overwrite this <gold>home<yellow>? <hover:show_text:'<red>Click to confirm!'><run_cmd:'/sethome ${home_name} %player:name% -confirm'><dark_red>[<bold>CONFIRM</bold>]",
 
+  "fabric-essentials.commands.setspawn": "<yellow>Set the spawn location!",
+
   "fabric-essentials.commands.setwarp": "<yellow>Set the warp <gold>${warp_name}<yellow>!",
   "fabric-essentials.commands.setwarp.already_exists": "<red>A warp with that name already exists!",
 
@@ -103,6 +105,8 @@
   "fabric-essentials.commands.signedit.cant_modify": "<red>You can't modify this sign!",
   "fabric-essentials.commands.signedit.missing": "<red>You need to look at a sign to use this command!",
   "fabric-essentials.commands.signedit.length": "<red>The text exceeds the maximum length!",
+
+  "fabric-essentials.commands.spawn": "<yellow>Teleporting to spawn.",
 
   "fabric-essentials.commands.tpa.self": "<yellow>Request to teleport <gold>you <yellow>to <gold>%player:displayname% <yellow>has been sent!",
   "fabric-essentials.commands.tpa.victim": "<gold>%player:displayname% <yellow>requested to teleport to <gold>you<yellow>. <hover:show_text:'<green>Click to accept!'><run_cmd:'/tpaccept %player:name%'><dark_green>[✔] <hover:show_text:'<red>Click to deny!'><run_cmd:'/tpdeny %player:name%'><dark_red>[✘]",

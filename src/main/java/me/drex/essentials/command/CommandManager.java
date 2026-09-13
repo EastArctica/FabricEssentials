@@ -17,6 +17,8 @@ import me.drex.essentials.command.impl.home.HomeCommand;
 import me.drex.essentials.command.impl.home.HomesCommand;
 import me.drex.essentials.command.impl.home.SetHomeCommand;
 import me.drex.essentials.command.impl.teleportation.BackCommand;
+import me.drex.essentials.command.impl.teleportation.SetSpawnCommand;
+import me.drex.essentials.command.impl.teleportation.SpawnCommand;
 import me.drex.essentials.command.impl.tpa.TpAcceptCommand;
 import me.drex.essentials.command.impl.tpa.TpAllCommand;
 import me.drex.essentials.command.impl.tpa.TpDenyCommand;
@@ -62,6 +64,8 @@ public class CommandManager {
         new TpAllCommand(),
         new TpAcceptCommand(),
         new TpDenyCommand(),
+        new SetSpawnCommand(),
+        new SpawnCommand(),
         // Util
         new BackCommand(),
         new BroadcastCommand(),

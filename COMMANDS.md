@@ -22,6 +22,8 @@
 | `/tpall` |  | `fabric-essentials.command.tpall` | ✘ |
 | `/tpaccept [<target>]` |  | `fabric-essentials.command.tpaccept` | ✔ |
 | `/tpdeny [<target>]` |  | `fabric-essentials.command.tpdeny` | ✔ |
+| `/setspawn` |  | `fabric-essentials.command.setspawn` | ✘ |
+| `/spawn` |  | `fabric-essentials.command.spawn` | ✔ |
 | `/back` |  | `fabric-essentials.command.back` | ✘ |
 | `/broadcast <message>` |  | `fabric-essentials.command.broadcast` | ✘ |
 | `/commandspy` |  | `fabric-essentials.command.commandspy` | ✘ |

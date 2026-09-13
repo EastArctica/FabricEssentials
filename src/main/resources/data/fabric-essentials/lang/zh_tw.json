@@ -91,6 +91,8 @@
   "fabric-essentials.commands.sethome.self.confirm": "<red>已經有一個這個名字的家了！<yellow>你想要覆蓋這個<gold>家<yellow>嗎？ <hover:show_text:'<red>點擊以確認！'><run_cmd:'/sethome ${home_name} -confirm'><dark_red>[<bold>確認</bold>]",
   "fabric-essentials.commands.sethome.other.confirm": "<red><gold>%player:displayname% <red>已經有一個這個名字的家了！<yellow>你想要覆蓋這個<gold>家<yellow>嗎？ <hover:show_text:'<red>點擊以確認！'><run_cmd:'/sethome ${home_name} %player:name% -confirm'><dark_red>[<bold>確認</bold>]",
 
+  "fabric-essentials.commands.setspawn": "<yellow>設置了重生點！",
+
   "fabric-essentials.commands.setwarp": "<yellow>設置了傳送點<gold>${warp_name}<yellow>!",
   "fabric-essentials.commands.setwarp.already_exists": "<red>已經有一個這個名字的傳送點了！",
 
@@ -98,6 +100,8 @@
   "fabric-essentials.commands.signedit.cant_modify": "<red>你不能修改這個告示牌！",
   "fabric-essentials.commands.signedit.missing": "<red>你需要指向一個告示牌來使用這條指令！",
   "fabric-essentials.commands.signedit.length": "<red>文本超過了最大長度限制！",
+
+  "fabric-essentials.commands.spawn": "<yellow>正在傳送至重生點。",
 
   "fabric-essentials.commands.tpa.self": "<yellow>已發送傳送<gold>你<yellow>至<gold>%player:displayname%<yellow>的請求！",
   "fabric-essentials.commands.tpa.victim": "<gold>%player:displayname%<yellow>請求傳送到<gold>你<yellow>。 <hover:show_text:'<green>點擊以同意！'><run_cmd:'/tpaccept %player:name%'><dark_green>[✔] <hover:show_text:'<red>點擊以拒絕！'><run_cmd:'/tpdeny %player:name%'><dark_red>[✘]",

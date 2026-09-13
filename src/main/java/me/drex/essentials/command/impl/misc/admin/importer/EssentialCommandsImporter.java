@@ -6,6 +6,7 @@ import me.drex.essentials.storage.ServerData;
 import me.drex.essentials.util.teleportation.Home;
 import me.drex.essentials.util.teleportation.Location;
 import me.drex.essentials.util.teleportation.Warp;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtAccounter;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.resources.Identifier;
@@ -108,6 +109,23 @@ public class EssentialCommandsImporter implements DataImporter {
                     ServerData serverData = DataStorage.serverData();
                     serverData.getWarps().putAll(warps);
                     EssentialsMod.LOGGER.info("Warps data imported, imported {} warps!", warps.size());
+
+                    final CompoundTag worldTag = tag;
+                    worldTag.getCompound("spawn").ifPresent(spawnTag -> {
+                        if (spawnTag.isEmpty()) return;
+                        var world = spawnTag.getString("WorldRegistryKey").orElseThrow();
+                        var x = spawnTag.getDouble("x").orElseThrow();
+                        var y = spawnTag.getDouble("y").orElseThrow();
+                        var z = spawnTag.getDouble("z").orElseThrow();
+                        var yaw = spawnTag.getFloat("headYaw").orElseThrow();
+                        var pitch = spawnTag.getFloat("pitch").orElseThrow();
+                        if (serverData.getSpawn() == null) {
+                            serverData.setSpawn(new Location(new Vec3(x, y, z), yaw, pitch, Identifier.parse(world)));
+                            EssentialsMod.LOGGER.info("Spawn data imported!");
+                        } else {
+                            EssentialsMod.LOGGER.warn("Skipped spawn import, a spawn location is already set!");
+                        }
+                    });
                 } catch (IOException e) {
                     EssentialsMod.LOGGER.error("An error occurred while handling the server file {}", worldData, e);
                 }
